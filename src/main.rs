@@ -48,7 +48,7 @@ fn main() -> Result<()> {
         .open(&save_path)?;
 
     for (index, char) in chars.iter().enumerate() {
-        println!("{} {char}", format!("{index}: ").green().bold());
+        println!("{}{char}", format!("{index}: ").green().bold());
         file.write_all(format!("{char}\n").as_bytes())?;
     }
     println!(
