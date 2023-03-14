@@ -12,14 +12,14 @@ pub struct Cli {
     #[arg(short, long, default_value_t = 1)]
     pub count: u8,
     /// Ignore dangerous words
-    #[arg(short, long)]
+    #[arg(short, long, conflicts_with = "ignore_symbol")]
     pub ignore: bool,
+    /// Ignore Symbol
+    #[arg(long, conflicts_with = "ignore")]
+    pub ignore_symbol: bool,
     /// The path where the result will be saved
     #[arg(short, long, value_name = "SAVE_PATH", default_value = "result.txt")]
     pub save: PathBuf,
-    /// Ignore Symbol
-    #[arg(long)]
-    pub ignore_symbol: bool,
     /// Only Number(integer)
     #[arg(
         long,

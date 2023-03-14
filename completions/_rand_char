@@ -21,9 +21,9 @@ _rand_char() {
 '--count=[Number of strings generated]:COUNT: ' \
 '-s+[The path where the result will be saved]:SAVE_PATH:_files' \
 '--save=[The path where the result will be saved]:SAVE_PATH:_files' \
-'-i[Ignore dangerous words]' \
-'--ignore[Ignore dangerous words]' \
-'--ignore-symbol[Ignore Symbol]' \
+'(--ignore-symbol)-i[Ignore dangerous words]' \
+'(--ignore-symbol)--ignore[Ignore dangerous words]' \
+'(-i --ignore)--ignore-symbol[Ignore Symbol]' \
 '(--only-lowercase --only-letter --only-uppercase)--only-number[Only Number(integer)]' \
 '(--only-number --only-uppercase --only-lowercase)--only-letter[Only letter]' \
 '(--only-number --only-letter --only-lowercase)--only-uppercase[Only letters in upper case]' \
