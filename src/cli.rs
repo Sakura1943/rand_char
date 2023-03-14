@@ -1,9 +1,14 @@
 use std::path::PathBuf;
 
-use clap::{Command, CommandFactory, Parser};
+use clap::{ArgGroup, Command, CommandFactory, Parser};
 
 #[derive(Debug, Parser, Clone)]
 #[command(version, author, about, long_about = None)]
+#[command(group(
+    ArgGroup::new("vers")
+        .required(true)
+        .args(["ignore_symbol", "ignore", "only_number", "only_letter", "only_uppercase", "only_lowercase", "only_uppercase"])
+))]
 pub struct Cli {
     /// The length of the generated single string
     #[arg(short, long, default_value_t = 10)]
@@ -12,31 +17,25 @@ pub struct Cli {
     #[arg(short, long, default_value_t = 1)]
     pub count: u8,
     /// Ignore dangerous words
-    #[arg(short, long, conflicts_with = "ignore_symbol")]
+    #[arg(short, long)]
     pub ignore: bool,
     /// Ignore Symbol
-    #[arg(long, conflicts_with = "ignore")]
+    #[arg(long)]
     pub ignore_symbol: bool,
     /// The path where the result will be saved
     #[arg(short, long, value_name = "SAVE_PATH", default_value = "result.txt")]
     pub save: PathBuf,
     /// Only Number(integer)
-    #[arg(
-        long,
-        conflicts_with_all(["only_lowercase", "only_letter", "only_uppercase"])
-    )]
+    #[arg(long)]
     pub only_number: bool,
     /// Only letter
-    #[arg(
-        long,
-        conflicts_with_all(["only_number", "only_uppercase", "only_lowercase"])
-    )]
+    #[arg(long)]
     pub only_letter: bool,
     /// Only letters in upper case
-    #[arg(long, conflicts_with_all(["only_number", "only_letter", "only_lowercase"]))]
+    #[arg(long)]
     pub only_uppercase: bool,
     /// Only letters in lower case
-    #[arg(long, conflicts_with_all(["only_number", "only_letter", "only_uppercase"]))]
+    #[arg(long)]
     pub only_lowercase: bool,
 }
 

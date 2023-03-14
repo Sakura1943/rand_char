@@ -24,12 +24,12 @@ pub fn gen_char(
                             abcdefghjkmnpqrstuvwxyz\
                             0123456789)(*&^%$#@!~+-"
             .as_bytes();
-        if ignore_symbol {
-            charset = "ABCDEFGHJKMNPQRSTUVWXYZ\
+    }
+    if ignore_symbol {
+        charset = "ABCDEFGHJKMNPQRSTUVWXYZ\
                             abcdefghjkmnpqrstuvwxyz\
                             0123456789"
-                .as_bytes();
-        }
+            .as_bytes();
     }
     if only_number {
         charset = "0123456789".as_bytes();
