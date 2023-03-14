@@ -6,7 +6,8 @@ use std::{
 
 use colored::Colorize;
 use dialoguer::{theme::ColorfulTheme, Select};
-use rand_char::{cli::Cli, generate::gen_char, result::Result};
+use rand_char::{cli::Cli, generate::gen_char};
+use anyhow::Result;
 
 fn main() -> Result<()> {
     let cli = Cli::default();
