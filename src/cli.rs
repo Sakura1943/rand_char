@@ -6,7 +6,6 @@ use clap::{ArgGroup, Command, CommandFactory, Parser};
 #[command(version, author, about, long_about = None)]
 #[command(group(
     ArgGroup::new("vers")
-        .required(true)
         .args(["ignore_symbol", "ignore", "only_number", "only_letter", "only_uppercase", "only_lowercase", "only_uppercase"])
 ))]
 pub struct Cli {
