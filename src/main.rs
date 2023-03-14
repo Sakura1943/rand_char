@@ -13,8 +13,7 @@ fn main() -> Result<()> {
     let cli = Cli::default();
     let length = cli.length;
     let count = cli.count;
-    let ignore = cli.ignore;
-    let save_path = cli.save;
+    let save_path = &cli.save;
 
     if save_path.exists() {
         eprintln!(
@@ -35,7 +34,7 @@ fn main() -> Result<()> {
         }
     }
 
-    let chars = gen_char(length, count, ignore)?;
+    let chars = gen_char(cli.clone())?;
     println!(
         "Total: {}, single char length: {}\n",
         count.to_string().green(),
@@ -48,7 +47,7 @@ fn main() -> Result<()> {
         .open(&save_path)?;
 
     for (index, char) in chars.iter().enumerate() {
-        println!("{}{char}", format!("{index}: ").green().bold());
+        println!("{}{char}", format!("{}: ", index + 1).green().bold());
         file.write_all(format!("{char}\n").as_bytes())?;
     }
     println!(

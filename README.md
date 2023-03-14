@@ -18,3 +18,12 @@ cd completions
 cp rand_char.bash /usr/share/bash-completion/completions/rand_char
 ```
 
+## Usage
+```shell
+rand_char
+```
+
+## Help
+```shell
+rand_char --help
+```

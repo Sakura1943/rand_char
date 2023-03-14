@@ -1,8 +1,19 @@
+use super::{cli::Cli, result::Result};
 use rand::Rng;
 
-use super::result::Result;
-
-pub fn gen_char(length: u8, count: u8, ignore: bool) -> Result<Vec<String>> {
+pub fn gen_char(
+    Cli {
+        length,
+        count,
+        ignore,
+        ignore_symbol,
+        only_lowercase,
+        only_letter,
+        only_uppercase,
+        only_number,
+        ..
+    }: Cli,
+) -> Result<Vec<String>> {
     let mut chars = Vec::new();
     let mut charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ\
                             abcdefghijklmnopqrstuvwxyz\
@@ -11,8 +22,26 @@ pub fn gen_char(length: u8, count: u8, ignore: bool) -> Result<Vec<String>> {
     if ignore {
         charset = "ABCDEFGHJKMNPQRSTUVWXYZ\
                             abcdefghjkmnpqrstuvwxyz\
-                            23456789)(*&^%$#@!~+-"
+                            0123456789)(*&^%$#@!~+-"
             .as_bytes();
+        if ignore_symbol {
+            charset = "ABCDEFGHJKMNPQRSTUVWXYZ\
+                            abcdefghjkmnpqrstuvwxyz\
+                            0123456789"
+                .as_bytes();
+        }
+    }
+    if only_number {
+        charset = "0123456789".as_bytes();
+    }
+    if only_uppercase {
+        charset = "ABCDEFGHJKMNPQRSTUVWXYZ".as_bytes();
+    }
+    if only_letter {
+        charset = "ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz".as_bytes();
+    }
+    if only_lowercase {
+        charset = "abcdefghjkmnpqrstuvwxyz".as_bytes();
     }
     for _ in 0..count {
         chars.push(
