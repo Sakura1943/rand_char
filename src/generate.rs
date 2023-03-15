@@ -22,7 +22,7 @@ pub fn gen_char(
     if ignore {
         charset = "ABCDEFGHJKMNPQRSTUVWXYZ\
                             abcdefghjkmnpqrstuvwxyz\
-                            23456789)(*&^%$#@!~+-"
+                            23456789*&^%$#@~+-"
             .as_bytes();
     }
     if ignore_symbol {
