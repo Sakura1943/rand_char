@@ -6,7 +6,7 @@ use clap::{ArgGroup, Command, CommandFactory, Parser};
 #[command(version, author, about, long_about = None)]
 #[command(group(
     ArgGroup::new("vers")
-        .args(["ignore_symbol", "ignore", "only_number", "only_letter", "only_uppercase", "only_lowercase", "only_uppercase"])
+        .args(["ignore_symbol", "only_number", "only_letter", "only_uppercase", "only_lowercase", "only_uppercase"])
 ))]
 pub struct Cli {
     /// The length of the generated single string
