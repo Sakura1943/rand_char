@@ -15,7 +15,7 @@ fn main() -> Result<()> {
     let count = cli.count;
     let save_path = &cli.save;
 
-    if save_path.exists() {
+    if save_path.exists() && !cli.disable_save {
         eprintln!(
             "{} Result `{}` is exists!\n",
             "ERROR:".red(),
