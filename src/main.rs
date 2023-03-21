@@ -4,7 +4,7 @@ use std::{
     process::exit,
 };
 
-use anyhow::{Result, anyhow};
+use anyhow::Result;
 use colored::Colorize;
 use dialoguer::{theme::ColorfulTheme, Select};
 use rand_char::{cli::Cli, generate::gen_char};
@@ -17,9 +17,15 @@ fn main() -> Result<()> {
 
     if save_path.exists() && !cli.disable_save {
         if !cli.disable_save {
-             return Err(anyhow!("The --stdout option needs to be used with the --disable_save"));
+            eprintln!(
+                "{} the argument '{}' cannot be used with '{}'",
+                "error:".bright_red().bold(),
+                "--stdout".yellow(),
+                "--disable-save".yellow()
+            );
+            exit(1);
         }
-        
+
         eprintln!(
             "{} Result `{}` is exists!\n",
             "ERROR:".red(),
