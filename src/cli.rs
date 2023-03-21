@@ -36,7 +36,7 @@ pub struct Cli {
     /// Only letters in lower case
     #[arg(long)]
     pub only_lowercase: bool,
-    /// Disable result to file
+    /// Disable saving result
     #[arg(long)]
     pub disable_save: bool
 }

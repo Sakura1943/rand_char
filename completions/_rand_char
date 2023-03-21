@@ -28,7 +28,7 @@ _rand_char() {
 '--only-letter[Only letter]' \
 '--only-uppercase[Only letters in upper case]' \
 '--only-lowercase[Only letters in lower case]' \
-'--disable-save[Disable result to file]' \
+'--disable-save[Disable saving result]' \
 '-h[Print help]' \
 '--help[Print help]' \
 '-V[Print version]' \
