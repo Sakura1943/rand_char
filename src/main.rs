@@ -18,7 +18,7 @@ fn main() -> Result<()> {
     if save_path.exists() && !cli.disable_save {
         if !cli.disable_save {
             eprintln!(
-                "{} the argument '{}' cannot be used with '{}'",
+                "{} the argument '{}' cannot be used without '{}'",
                 "error:".bright_red().bold(),
                 "--stdout".yellow(),
                 "--disable-save".yellow()
