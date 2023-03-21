@@ -21,6 +21,7 @@ _rand_char() {
 '--count=[Number of strings generated]:COUNT: ' \
 '-s+[The path where the result will be saved]:SAVE_PATH:_files' \
 '--save=[The path where the result will be saved]:SAVE_PATH:_files' \
+'--disable-save[Disable saving result]' \
 '-i[Ignore dangerous words]' \
 '--ignore[Ignore dangerous words]' \
 '--ignore-symbol[Ignore Symbol]' \
@@ -28,7 +29,7 @@ _rand_char() {
 '--only-letter[Only letter]' \
 '--only-uppercase[Only letters in upper case]' \
 '--only-lowercase[Only letters in lower case]' \
-'--disable-save[Disable saving result]' \
+'--stdout[Only print result list]' \
 '-h[Print help]' \
 '--help[Print help]' \
 '-V[Print version]' \

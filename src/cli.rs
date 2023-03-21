@@ -5,7 +5,7 @@ use clap::{ArgGroup, Command, CommandFactory, Parser};
 #[derive(Debug, Parser, Clone)]
 #[command(version, author, about, long_about = None)]
 #[command(group(
-    ArgGroup::new("vers")
+    ArgGroup::new("ignore_and_only")
         .args(["ignore_symbol", "only_number", "only_letter", "only_uppercase", "only_lowercase", "only_uppercase"])
 ))]
 pub struct Cli {
@@ -15,6 +15,9 @@ pub struct Cli {
     /// Number of strings generated
     #[arg(short, long, default_value_t = 1)]
     pub count: u8,
+    /// Disable saving result
+    #[arg(long)]
+    pub disable_save: bool,
     /// Ignore dangerous words
     #[arg(short, long)]
     pub ignore: bool,
@@ -36,9 +39,9 @@ pub struct Cli {
     /// Only letters in lower case
     #[arg(long)]
     pub only_lowercase: bool,
-    /// Disable saving result
+    /// Only print result list
     #[arg(long)]
-    pub disable_save: bool
+    pub stdout: bool
 }
 
 impl Default for Cli {

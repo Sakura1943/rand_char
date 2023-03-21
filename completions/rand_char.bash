@@ -19,7 +19,7 @@ _rand_char() {
 
     case "${cmd}" in
         rand_char)
-            opts="-l -c -i -s -h -V --length --count --ignore --ignore-symbol --save --only-number --only-letter --only-uppercase --only-lowercase --disable-save --help --version"
+            opts="-l -c -i -s -h -V --length --count --disable-save --ignore --ignore-symbol --save --only-number --only-letter --only-uppercase --only-lowercase --stdout --help --version"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
